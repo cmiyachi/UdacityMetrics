@@ -2,52 +2,89 @@
 
 ## Verify the monitoring installation
 
-*TODO:* run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
+ run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
+
+![Alt text](./answer-img/podsandservices.png?raw=true "Pods-Services")
 
 ## Setup the Jaeger and Prometheus source
-*TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
+Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
+
+![Alt text](./answer-img/grafana.png?raw=true "grafana")
+
+![Alt text](./answer-img/prometheuskubernetes.png?raw=true "Kubernetes")
 
 ## Create a Basic Dashboard
-*TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
+Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
+![Alt text](./answer-img/prometheusdatasource.png?raw=true "Data Source")
 
 ## Describe SLO/SLI
-*TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+
+Service-Level Objectives (SLOs)are a clear objective or goal.  Service-level indicators (SLIs) . Once we have a clear definition and objective for the is a measure the performance to the goal.  An SLI for montly uptime would be a measurement for montly uptime, say 99.9% (three 9s). Latency SLI could be the time between request and response.  The time measured should be within 95% of the required latency (this is an example). 
+
+The percentages above are ratio - of a measurement to a given amount of time (the measured uptime per year). 
 
 ## Creating SLI metrics.
-*TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+
+| SLO           | SLI           |
+| ------------- | ------------- |
+| Uptime        | Time service is active  |
+| Latency       | Time of response after request  |
+| Failure Rate  | # of failures in a time period  |
+| CPU Usage     | Percent of CPU used in a time period  |
+| Network Bandwidth | Network bandwidth in a time period  |
 
 ## Create a Dashboard to measure our SLIs
-*TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
+Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
+
+![Alt text](./answer-img/custommetrics.png?raw=true "My dashboard")
 
 ## Tracing our Flask App
-*TODO:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here.
+ We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here.
 
 ## Jaeger in Dashboards
-*TODO:* Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
+Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
+![Alt text](./answer-img/backendjaeger.png?raw=true "Mapplication")
 
 ## Report Error
-*TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue.
+Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue.
 
 TROUBLE TICKET
 
-Name:
+Name: HTTP Error 500
 
-Date:
+Date: 11/12/21
 
-Subject:
+Subject: Unknown server error
 
-Affected Area:
+Affected Area: Backend star api endpoint
 
-Severity:
+Severity: HIGH
 
-Description:
+Description: Unknown error - internal server error
 
 
 ## Creating SLIs and SLOs
-*TODO:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name three SLIs that you would use to measure the success of this SLO.
+We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name three SLIs that you would use to measure the success of this SLO.
+
+Uptime - 99.95% service up and running
+Http Error Rate - < 95%
+CPU and Memory - never higher than 70% of capacity
 
 ## Building KPIs for our plan
-*TODO*: Now that we have our SLIs and SLOs, create KPIs to accurately measure these metrics. We will make a dashboard for this, but first write them down here.
+Now that we have our SLIs and SLOs, create KPIs to accurately measure these metrics. We will make a dashboard for this, but first write them down here.
+Now that we have our SLIs and SLOs, create KPIs to accurately measure these metrics. We will make a dashboard for this, but first write them down here.
 
+* Services Uptime 
+    * Backend uptime + Frontend uptime
+* Http server error
+    * Backend and frontend  http 4xx and 5xx
+* Response time to requests
+* Resource capacity     
+    * CPU 
+    * Memory 
 ## Final Dashboard
-*TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
+ Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
+
+![Alt text](./answer-img/finalKPIs.png?raw=true "Mapplication")
