@@ -68,9 +68,10 @@ Description: Unknown error - internal server error
 ## Creating SLIs and SLOs
 We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name three SLIs that you would use to measure the success of this SLO.
 
-Uptime - 99.95% service up and running
-Http Error Rate - < 95%
-CPU and Memory - never higher than 70% of capacity
+* Uptime - 99.95% service up and running
+* Http Error Rate - < 95%
+* CPU and Memory - never higher than 70% of capacity
+* Network Bandwidth- less than 5B/s
 
 ## Building KPIs for our plan
 Now that we have our SLIs and SLOs, create KPIs to accurately measure these metrics. We will make a dashboard for this, but first write them down here.
@@ -78,13 +79,24 @@ Now that we have our SLIs and SLOs, create KPIs to accurately measure these metr
 
 * Services Uptime 
     * Backend uptime + Frontend uptime
-* Http server error
-    * Backend and frontend  http 4xx and 5xx
-* Response time to requests
-* Resource capacity     
+* Http Error rate
+    * Backend and frontend 
+* Network Bandwidth < 5B/s
+* Resource capacity < 70% capacity     
     * CPU 
     * Memory 
+
+
+| SLO           | SLI           |
+| ------------- | ------------- |
+| Uptime        | Time service is active  |
+| Memory Usage  | Percent of Memory used in a time period
+| Failure Rate  | # of failures in a time period  |
+| CPU Usage     | Percent of CPU used in a time period  |
+| Network Bandwidth | Network bandwidth in a time period  |
 ## Final Dashboard
  Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
 
-![Alt text](./answer-img/finalKPIs.png?raw=true "Mapplication")
+![Alt text](./answer-img/KPIspage1.png?raw=true "Mapplication")
+![Alt text](./answer-img/KPIspage2.png?raw=true "Mapplication")
+![Alt text](./answer-img/KPIspage3.png?raw=true "Mapplication")
